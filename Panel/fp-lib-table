@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name "RP2040_minimal")(type "KiCad")(uri "C:/Users/jayde/Documents/KiCadFootprints/RP2040/Minimal/RP2040_minimal/RP2040_minimal.pretty")(options "")(descr ""))
+)
