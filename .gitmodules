@@ -1,0 +1,3 @@
+[submodule "sugoku_footprints"]
+	path = sugoku_footprints
+	url = https://github.com/sugoku/sugoku_footprints
