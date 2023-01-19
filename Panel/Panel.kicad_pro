@@ -378,7 +378,9 @@
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
         "name": "Beeg Power",
-        "nets": [],
+        "nets": [
+          "LIGHT EN"
+        ],
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.5,
@@ -397,7 +399,8 @@
         "microvia_drill": 0.1,
         "name": "Mid Power",
         "nets": [
-          "+5V"
+          "+5V",
+          "Ext 5V"
         ],
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",
