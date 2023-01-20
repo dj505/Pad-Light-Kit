@@ -74,10 +74,10 @@ The following components (some of which are not required) are listed per **1** P
 |NCP1117 3.3V Output Regulator|SOT-223-3                   |1       |
 |12.000MHz Crystal Oscillator |HC49                        |1       |
 
-\* Optional
-\*\* Do Not Fit (only required if a part malfunctions without it)
-\~ Required for old-style pads (FX and earlier)
-\~\~ Required for new-style pads (CX/TX and newer)
+\* Optional  
+\*\* Do Not Fit (only required if a part malfunctions without it)  
+\~ Required for old-style pads (FX and earlier)  
+\~\~ Required for new-style pads (CX/TX and newer)  
 
 All **SMD 0402** parts use hand-solder footprints in just in case, however if you do not own a reflow oven or hot air soldering station, please consider using an assembly service available through companies like PCBWay or JLCPCB for a better and more realiable end result. It does cost extra, but will be far less time consuming and far more reliable than soldering hundreds of components by hand.
 
