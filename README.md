@@ -20,13 +20,13 @@ Unlike the PicoFX and my other previous hardware projects, this kit is not meant
 ### This project is designed to be as easy as possible to install, but does require you to do some amount of manual part sourcing. Please pay close attention to power consumption and make sure you source parts that can support the kit.
 
 This project is made for somewhat modern Pump it Up dance pads (FX through LX), but is also plug-and-play compatible with:
-* All Pump it Up dance pads **after** SD (SD pads used incandescent bulbs. Please don't wire 120/240V to the 12V input)
+* All Pump it Up dance pads **after** SD (SD pads used incandescent bulbs and will require some modification for use with this kit)
 * In the Groove pads
 * Older Dance Dance Revolution pads that use the same 2.54mm pitch connector (double check first!)
 Please **pay close attention to the polarity** of the 12V connector printed on the PCB's silkscreen.  
 The **yellow wire should go to 12V.** This may involve plugging the cable in upside down. That's okay.
 
-Without some modification to the pads and/or this kit, this project is **NOT** plug-and-play compatible with:
+Without some modification to the pads and/or this kit, this project is untested or **NOT** plug-and-play compatible with:
 * Pump it Up JUMP pads (unfortunate, I know)
 * Modern Dance Dance Revolution pads
 * Namco "Crapocab" DDR pads
@@ -44,7 +44,7 @@ Aside from the individual components required for each PCB, you will need:
     * If I did my math right, these metrics are based on the peak power comsumption when every single LED is lit up white at full brightness. **Only your LEDs on full-brightness white for extended periods of time at your own risk; the kit was not developed with this use in mind.**
 * Extra wiring to supply power to the new PCBs
 
-# Bill of Materials
+# Bill of Materials (Panel)
 A full BOM can be found in the "Assembly" folder. Unlike my previous projects, such as the PicoFX or PicoIO, there are a *lot* of components that you will likely need to source yourself. Many of these have LCSC part numbers attached as an example, but are not guaranteed to be available through JLCPCB's assembly service.  
 The following components (some of which are not required) are listed per **1** PCB:
 
