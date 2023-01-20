@@ -31,3 +31,7 @@ Aside from the individual components required for each PCB, you will need:
 * A power supply that can provide up to ~15A maximum current at 5 volts (75W or so)
     * This can be either one 7.5-8A power supply **per pad**, or one single super beefy power supply for **both pads simultaneously.**
 * Extra wiring to supply power to the new PCBs
+
+# Credits
+Thanks to:
+- [sugoku](https://github.com/sugoku) for the Molex 35312 series footprints
