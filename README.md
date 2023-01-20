@@ -45,7 +45,7 @@ Aside from the individual components required for each PCB, you will need:
 * Extra wiring to supply power to the new PCBs
 
 # Bill of Materials (Panel)
-A full BOM can be found in the "Assembly" folder. Unlike my previous projects, such as the PicoFX or PicoIO, there are a *lot* of components that you will likely need to source yourself. Many of these have LCSC part numbers attached as an example, but are not guaranteed to be available through JLCPCB's assembly service.  
+A full BOM can be generated using KiCad's schematic editor. Unlike my previous projects, such as the PicoFX or PicoIO, there are a *lot* of components that you will likely need to source yourself. Many of these have LCSC part numbers attached as an example, but are not guaranteed to be available through JLCPCB's assembly service.  
 The following components (some of which are not required) are listed per **1** PCB:
 
 |          Component          |          Footprint         |Quantity|
@@ -82,6 +82,10 @@ The following components (some of which are not required) are listed per **1** P
 \~\~ Required for new-style pads (CX/TX and newer)  
 
 All **SMD 0402** parts use hand-solder footprints in just in case, however if you do not own a reflow oven or hot air soldering station, please consider using an assembly service available through companies like PCBWay or JLCPCB for a better and more realiable end result. It does cost extra, but will be far less time consuming and far more reliable than soldering hundreds of components by hand.
+
+# Bill of Materials (Power PCB)
+This is a work-in-progress part.
+//TODO
 
 # Very Important Notes
 ### This kit will require a dedicated power supply and there's no safe way around that.
