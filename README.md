@@ -1,5 +1,7 @@
 # Overkill PIU Pad Lighting Kit
-An upgrade kit, if you consider a 5x5 RGB LED matrix in the center of each panel to be an upgrade.
+An upgrade kit, if you consider a 5x5 RGB LED matrix in the center of each panel to be an upgrade.  
+
+![Render](Panel/Images/Render.png)
 
 # What is this?
 I wanted to make a drop-in kit that replaced the original LEDs in Pump it Up dance pads with fancy StepManiaX-like RGB lighting. **This is only partially that.** Due to a variety of factors, it's not quite as drop-in as I'd hoped.
@@ -86,7 +88,8 @@ All **SMD 0402** parts use hand-solder footprints in just in case, however if yo
 I'm not an electrician and I don't have a strong grasp of the fine details involved in power management, but I do know that it's not safe to run too much current through a wire that can't handle it.
 Please don't try to power this off the cab's original 12V line! The original 22AWG wire is rated for roughly 0.92A. This kit can potentially draw over 1.5A per panel, or over 7.5A total per pad.  
 Make sure you use a power supply that's capable of supplying the necessary amount of power required by this kit, and pick a wire gauge capable of carrying the amount of power needed for each panel. 20AWG is recommended at minimum.  
-You'll likely end up with 1-2 extra power supply cables running through the bottom your pads. If I can come up with a more elegant solution I'll be sure to post it in detail.
+You'll likely end up with 1-2 extra power supply cables running through the bottom your pads. If I can come up with a more elegant solution I'll be sure to post it in detail.  
+**Make sure you use a bright solder mask!!!** White is recommended, green and others may also work, but black solder mask isn't known to be very reflective.
 
 # Credits
 Thanks to:
