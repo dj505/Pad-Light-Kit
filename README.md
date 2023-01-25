@@ -87,6 +87,17 @@ All **SMD 0402** parts use hand-solder footprints in just in case, however if yo
 This is a work-in-progress part.
 //TODO
 
+# Firmware Setup
+This project runs on [CircuitPython for the Raspberry Pi Pico.](https://circuitpython.org/board/raspberry_pi_pico/). I'm not quite clever enough to create a special CircuitPython build specifically for this project yet, maybe one day!
+
+1. Download the .uf2 file for CircuitPython. This project was develop with 7.3.3.
+2. Hold the BOOTSEL button down and plug the board into your PC.
+3. The board should pop up as a USB mass storage device. Drag and drop the .uf2 file onto it. After a moment, it should disconnect, and you should see a "CIRCUITPY" drive appear in its place.
+4. Open the "CIRCUITPY" drive, and copy the contents of this repository's "Firmware" directory onto it, overwriting code.py and merging the "lib" folder with the existing one.
+5. Download the [CircuitPython library bundle](https://circuitpython.org/libraries) that matches the version of CircuitPython you installed, and look inside the "lib" directory for an "asyncio" folder. Copy this to the CIRCUITPY drive's "lib" folder.
+6. Create your animations. See the instructions in /Firmware/bitmap/README.md or use the included example animations once they're added.
+7. You're done! If everything is assembled and set up properly, your animations should now work, and the panel is ready to be installed.
+
 # Very Important Notes
 ### This kit will require a dedicated power supply and there's no safe way around that.
 I'm not an electrician and I don't have a strong grasp of the fine details involved in power management, but I do know that it's not safe to run too much current through a wire that can't handle it.
