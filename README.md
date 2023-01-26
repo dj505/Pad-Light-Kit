@@ -93,9 +93,12 @@ This project runs on [CircuitPython for the Raspberry Pi Pico.](https://circuitp
 1. Download the .uf2 file for CircuitPython. This project was develop with 7.3.3.
 2. Hold the BOOTSEL button down and plug the board into your PC.
 3. The board should pop up as a USB mass storage device. Drag and drop the .uf2 file onto it. After a moment, it should disconnect, and you should see a "CIRCUITPY" drive appear in its place.
-4. Open the "CIRCUITPY" drive, and copy the contents of this repository's "Firmware" directory onto it, overwriting code.py and merging the "lib" folder with the existing one.
-5. Download the [CircuitPython library bundle](https://circuitpython.org/libraries) that matches the version of CircuitPython you installed, and look inside the "lib" directory for an "asyncio" folder. Copy this to the CIRCUITPY drive's "lib" folder.
-6. Create your animations. See the instructions in /Firmware/bitmap/README.md or use the included example animations.
+4. Open the "CIRCUITPY" drive, and copy the contents of this repository's "Firmware" directory onto it, overwriting code.py..
+5. Download the [CircuitPython library bundle](https://circuitpython.org/libraries) that matches the version of CircuitPython you installed.
+    * Look inside the "lib" directory for an "asyncio" folder. Copy this to the CIRCUITPY drive's "lib" folder.
+    * Do the same for "adafruit_pixelbuf.mpy" and "neopixel.mpy".
+6. Create your animations. See the instructions in /Firmware/README.md or use the included example animations.
+    * Your animation should be a bitmap file titled "image.bmp" and located in the "bitmap" directory.
 7. You're done! If everything is assembled and set up properly, your animations should now work, and the panel is ready to be installed.
 
 # Very Important Notes

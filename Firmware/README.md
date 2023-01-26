@@ -13,5 +13,3 @@ You'll need:
 4. Drop your new bitmap spritesheet in the "Image" folder, with the filename `image.bmp`
 
 Your animation should now display :) Example bitmaps will be provided once this project has been properly tested. If you don't see your animation, something probably went wrong with the settings chosen when exporting from GIMP. Double check that the colour depth is correct!
-
-(Thanks to stuartm2 for bmp_reader.py! I hope it's okay for me to use this, there was no license attached to the original project. If not, please let me know!)
