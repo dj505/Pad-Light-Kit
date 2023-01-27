@@ -84,8 +84,21 @@ The following components (some of which are not required) are listed per **1** P
 All **SMD 0402** parts use hand-solder footprints in just in case, however if you do not own a reflow oven or hot air soldering station, please consider using an assembly service available through companies like PCBWay or JLCPCB for a better and more realiable end result. It does cost extra, but will be far less time consuming and far more reliable than soldering hundreds of components by hand.
 
 # Bill of Materials (Power PCB)
-This is a work-in-progress part.
-//TODO
+This part is extremely basic and just supplies power to the panels.
+
+|          Component          |          Footprint         |Quantity|
+|-----------------------------|----------------------------|--------|
+|2 Pin JST XH                 |2.50mm Pitch                |5       |
+|10uF Capacitor \*            |SMD 0402                    |5       |
+|DC Barrel Jack \*\*          |2.5mm inner, 6.4mm Outer    |1       |
+|2 Pin Screw Terminal \*\*    |5mm Plugin Terminal         |1       |
+
+\* Option/not strictly necessary. Serves a purpose, but shouldn't affect functionality if missing.
+\*\* Denotes parts that are interchangeable depending on how you want to power the board
+
+This board lacks mounting holes and is intended to just be attached somewhere near the foot PCB or power supply with double sided tape. Placement is up to you. Footprints for a screw terminal and a DC jack are provided, depending on which is more suited to your use case. You could even solder the power wires straight to the PCB if you really want to. 
+
+JST XH connectors with 20AWG wire will need to be routed from the power distrubution PCB to every individual panel PCB. This shouldn't be all that difficult, just a little extra time consuming. Having a crimping tool would make this far easier.
 
 # Firmware Setup
 This project runs on [CircuitPython for the Raspberry Pi Pico.](https://circuitpython.org/board/raspberry_pi_pico/). I'm not quite clever enough to create a special CircuitPython build specifically for this project yet, maybe one day!
