@@ -44,10 +44,11 @@ Aside from the individual components required for each PCB, you will need:
     * If I did my math right, these metrics are based on the peak power comsumption when every single LED is lit up white at full brightness. **Only your LEDs on full-brightness white for extended periods of time at your own risk; the kit was not developed with this use in mind.**
 * Extra wiring to supply power to the new PCBs
 
-# Bill of Materials (Panel)
+# Main panel PCB
 A full BOM can be generated using KiCad's schematic editor. Unlike my previous projects, such as the PicoFX or PicoIO, there are a *lot* of components that you will likely need to source yourself. Many of these have LCSC part numbers attached as an example, but are not guaranteed to be available through JLCPCB's assembly service.  
 The following components (some of which are not required) are listed per **1** PCB:
 
+### Bill of materials
 |          Component          |          Footprint         |Quantity|
 |-----------------------------|----------------------------|--------|
 |100nF Capacitor              |SMD 0402                    |10      |
@@ -83,9 +84,10 @@ The following components (some of which are not required) are listed per **1** P
 
 All **SMD 0402** parts use hand-solder footprints in just in case, however if you do not own a reflow oven or hot air soldering station, please consider using an assembly service available through companies like PCBWay or JLCPCB for a better and more realiable end result. It does cost extra, but will be far less time consuming and far more reliable than soldering hundreds of components by hand.
 
-# Bill of Materials (Power PCB)
-This part is extremely basic and just supplies power to the panels.
+# Power PCB
+This part is extremely basic and just supplies power to the panels. Each PCB should be capable of supplying up to 8A, enough to power all 5 panels. Just make sure to hook it up to a power supply capable of delivering the necessary wattage.
 
+### Bill of materials
 |          Component          |          Footprint         |Quantity|
 |-----------------------------|----------------------------|--------|
 |2 Pin JST XH                 |2.50mm Pitch                |5       |
