@@ -8,10 +8,10 @@ matrix = neopixel.NeoPixel(board.GP0, 25, brightness=1, auto_write=False)
 
 sensor = digitalio.DigitalInOut(board.GP4)
 sensor.direction = digitalio.Direction.INPUT
-sensor.pull = digitalio.Pull.UP # Active low for testing purposes. Will be updated later.
+sensor.pull = digitalio.Pull.DOWN
 
 frame_delay = 0.05 # Time between frames. Adjust to change playback speed
-idle_brightness = 0.25
+idle_brightness = 0.125
 anim_brightness = 1
 
 # Bitmap reading (with padding)
@@ -78,7 +78,7 @@ async def idle(): # Displays a single still frame, specifically the first frame 
 async def ctrl_detect():  # Constantly reads the state of the sensor pin to check if the panel should be animating.
     global animation_task # The signal is active high, so the 12V line that normally powers the panel's original LEDs
     while True:           # is going through a voltage divider to bring it down to a 3V "high" signal.
-        if not sensor.value:
+        if sensor.value:
             ctrl.set() # Set the "ctrl" event to "True" to tell the other subroutines that the animation should be playing
         else:
             ctrl.clear() # Clear the "ctrl" event to tell the other subroutines that the animation should stop, and the idle task should start

@@ -4,27 +4,29 @@ An upgrade kit, if you consider a 5x5 RGB LED matrix in the center of each panel
 ![Render](Panel/Images/Render.png)
 
 # What is this?
-I wanted to make a drop-in kit that replaced the original LEDs in Pump it Up dance pads with fancy StepManiaX-like RGB lighting. **This is only partially that.** Due to a variety of factors, it's not quite as drop-in as I'd hoped.
+I wanted to make a drop-in kit that replaced the original LEDs in Pump it Up dance pads with fancy StepManiaX-like RGB lighting. **This is only partially that.** Due to a variety of factors, it's not quite as drop-in as I'd hoped, but installation is still rather straightforward!
 
 There are 2 PCB designs being worked on for this project:
 * The main "Panel" PCB
     * Contains all the LEDs, with individual microcontrollers per PCB, ensuring they can all work individually.
     * Complete, but untested. Check back in a month or two!
 * The power distrubution PCB
-    * Still a work in progress, not yet complete, maybe entirely unnecessary. We'll see.
+    * Takes a barrel jack and/or bare wires via screw terminals.
+    * 5V input only! Make sure your power supply can pump out enough amps to power all the LEDs.
+    * 5 outputs, one per arrow on one pad. In the case of DDR/ITG pads, one may be left unused.
 
-Unlike the PicoFX and my other previous hardware projects, this kit is not meant to be hand-soldered, although hand-solder friendly footprints were used where possible. Please keep in mind the PCB manufacturing and assembly costs for this project may be rather high. As this likely will not be sold as a pre-made kit any time soon, be aware that it is not a beginner project.
+Unlike the PicoFX and my other previous hardware projects, this kit is not meant to be hand-soldered, although hand-solder friendly footprints were used where possible. As this likely will not be sold as a pre-made kit any time soon, be aware that it is not a beginner project. PCB manufacturing and assembly costs are rather affordable, but costs from part sourcing and shipping could add up.
 
 # Compatibility & Overview
 
 ### This project is designed to be as easy as possible to install, but does require you to do some amount of manual part sourcing. Please pay close attention to power consumption and make sure you source parts that can support the kit.
 
-This project is made for somewhat modern Pump it Up dance pads (FX through LX), but is also plug-and-play compatible with:
+This project is made for somewhat modern Pump it Up dance pads (FX through LX), but is plug-and-play compatible with:
 * All Pump it Up dance pads **after** SD (SD pads used incandescent bulbs and will require some modification for use with this kit)
 * In the Groove pads
 * Older Dance Dance Revolution pads that use the same 2.54mm pitch connector (double check first!)
 Please **pay close attention to the polarity** of the 12V connector printed on the PCB's silkscreen.  
-The **yellow wire should go to 12V.** This may involve plugging the cable in upside down. That's okay.
+The **yellow wire should go to 12V.** This may involve plugging the cable in upside down. That's okay. Just keep in mind the pins may need to be bent upwards slightly to accept the connector.
 
 Without some modification to the pads and/or this kit, this project is untested or **NOT** plug-and-play compatible with:
 * Pump it Up JUMP pads (unfortunate, I know)
@@ -37,16 +39,21 @@ If the pads you want to use this project with have a **12V DC** wire that powers
 
 Aside from the individual components required for each PCB, you will need:
 * As many "Panel" PCBs as your upgrade requires
-    * PIU pads require 5 per full pad
-    * ITG/DDR pads require 4 per full pad
-* A power supply that can provide up to ~15A maximum current at 5 volts (75W or so)
+    * PIU pads require 5 per full pad, 10 in total for a complete setup
+    * ITG/DDR pads require 4 per full pad, 8 in total for a complete setup
+* A way to supply 5V with up to ~15A maximum current draw (75W or so)
     * This can be either one 7.5-8A power supply **per pad**, or one single super beefy power supply for **both pads simultaneously.**
-    * If I did my math right, these metrics are based on the peak power comsumption when every single LED is lit up white at full brightness. **Only your LEDs on full-brightness white for extended periods of time at your own risk; the kit was not developed with this use in mind.**
+    * If I did my math right, these metrics are based on the peak power comsumption when every single LED is lit up white at full brightness. **Only run your LEDs on full-brightness white for extended periods of time at your own risk; the kit was not developed with this use in mind.** (It would be bright as heck, though)
 * Extra wiring to supply power to the new PCBs
+    * I recommend 20AWG, anything thinner is not rated for the possible peak power consumption of one panel
+* 2 pin male JST connectors (along with metal connector to be crimped to the wires)
+    * These are listed here separately from the female connectors in the bill of materials, as you'll need quite a few.
+    * 2 connectors are required per panel. One to connect to the lighting PCB, one to connect to the power distribution board.
+* A crimping tool compatible with JST XH connectors (optional, but recommended)
 
 # Main panel PCB
 A full BOM can be generated using KiCad's schematic editor. Unlike my previous projects, such as the PicoFX or PicoIO, there are a *lot* of components that you will likely need to source yourself. Many of these have LCSC part numbers attached as an example, but are not guaranteed to be available through JLCPCB's assembly service.  
-The following components (some of which are not required) are listed per **1** PCB:
+The following components (some of which are not required) are listed per **single** PCB:
 
 ### Bill of materials
 |          Component          |          Footprint         |Quantity|
@@ -95,34 +102,81 @@ This part is extremely basic and just supplies power to the panels. Each PCB sho
 |DC Barrel Jack \*\*          |2.5mm inner, 6.4mm Outer    |1       |
 |2 Pin Screw Terminal \*\*    |5mm Plugin Terminal         |1       |
 
-\* Option/not strictly necessary. Serves a purpose, but shouldn't affect functionality if missing.
+\* Option/not strictly necessary. Serves a purpose, but shouldn't affect functionality if missing.  
 \*\* Denotes parts that are interchangeable depending on how you want to power the board
 
-This board lacks mounting holes and is intended to just be attached somewhere near the foot PCB or power supply with double sided tape. Placement is up to you. Footprints for a screw terminal and a DC jack are provided, depending on which is more suited to your use case. You could even solder the power wires straight to the PCB if you really want to. 
+This board lacks mounting holes and is intended to just be attached somewhere near the foot PCB or power supply with double sided tape. Placement is up to you. Footprints for a screw terminal and a DC jack are provided, depending on which is more suited to your use case. You could even solder the power wires straight to the PCB if you really want to.  
 
 JST XH connectors with 20AWG wire will need to be routed from the power distrubution PCB to every individual panel PCB. This shouldn't be all that difficult, just a little extra time consuming. Having a crimping tool would make this far easier.
+
+# Very Important Notes
+**(Seriously, you're going to want to double check these!)**
+
+### This kit will require dedicated external power, and there's no safe way around that!
+This kit bumps the LED count up to 125 per pad. Stock pads have around 40 or fewer depending on pad model. Please don't try to power this off the cab's original 12V line! The original 22AWG wire is rated for roughly 0.92A. This kit can potentially draw over 1.5A per panel, or over 7.5A total per pad. While this is a worst-case scenario, be sure to stick to the following guidelines.  
+Make sure you use a power supply that's capable of supplying the necessary amount of power required by this kit, and pick a wire gauge capable of carrying the amount of power needed for each panel. 20AWG is recommended at minimum.  
+You'll likely end up with some extra power supply cables running through the bottom your pads. If I can come up with a more elegant solution I'll be sure to post it in detail, but the holes present in the bottom corners of each arrow are safe bets as entry points for your wires.
+
+### Make sure you use a bright solder mask!
+White is recommended, green and others may also work, but black solder mask isn't known to be very reflective. It won't make a very big difference, but it will definitely look better and brighter.
+
+### If you own a multimeter, check the voltage of the 12V line!
+These boards get their "turn on and start animating" signal from the original 12V wiring that's meant to power the stock LEDs/inverters/what have you. To make this safe for the 3.3V RP2040 chip, a voltage divider is used. Until this design is eventually replaced with an optoisolator or other component, **you should do the following:**  
+1. Unplug the stock LED
+2. Hook up a voltmeter or a multimeter in DC mode to the connector
+3. Ensure the connector supples **no less than 10V** and **no more than 13.2V** when supplying power
+
+If the connector is not supplying enough power, the microcontroller won't read it as a "high" signal to start animating the lights. If it's *too* high, you risk damaging the microcontroller. I've haven't seen any machines deviate from this general range before, so chances are you're fine, but make sure to double check. If your machine has a variable voltage power supply **and you know what you're doing**, consider adjusting it slightly to fit within the safe range.
 
 # Firmware Setup
 This project runs on [CircuitPython for the Raspberry Pi Pico.](https://circuitpython.org/board/raspberry_pi_pico/). I'm not quite clever enough to create a special CircuitPython build specifically for this project yet, maybe one day!
 
-1. Download the .uf2 file for CircuitPython. This project was develop with 7.3.3.
+1. Download the .uf2 file for CircuitPython. This project was developed using 7.3.3.
 2. Hold the BOOTSEL button down and plug the board into your PC.
 3. The board should pop up as a USB mass storage device. Drag and drop the .uf2 file onto it. After a moment, it should disconnect, and you should see a "CIRCUITPY" drive appear in its place.
-4. Open the "CIRCUITPY" drive, and copy the contents of this repository's "Firmware" directory onto it, overwriting code.py..
+4. Open the "CIRCUITPY" drive, and copy the contents of this repository's "Firmware" directory onto it, overwriting code.py.
 5. Download the [CircuitPython library bundle](https://circuitpython.org/libraries) that matches the version of CircuitPython you installed.
     * Look inside the "lib" directory for an "asyncio" folder. Copy this to the CIRCUITPY drive's "lib" folder.
     * Do the same for "adafruit_pixelbuf.mpy" and "neopixel.mpy".
 6. Create your animations. See the instructions in /Firmware/README.md or use the included example animations.
     * Your animation should be a bitmap file titled "image.bmp" and located in the "bitmap" directory.
+    * By default, there won't be a "bitmap" directory. You'll need to create this by hand or copy over the example one.
 7. You're done! If everything is assembled and set up properly, your animations should now work, and the panel is ready to be installed.
 
-# Very Important Notes
-### This kit will require a dedicated power supply and there's no safe way around that.
-I'm not an electrician and I don't have a strong grasp of the fine details involved in power management, but I do know that it's not safe to run too much current through a wire that can't handle it.
-Please don't try to power this off the cab's original 12V line! The original 22AWG wire is rated for roughly 0.92A. This kit can potentially draw over 1.5A per panel, or over 7.5A total per pad.  
-Make sure you use a power supply that's capable of supplying the necessary amount of power required by this kit, and pick a wire gauge capable of carrying the amount of power needed for each panel. 20AWG is recommended at minimum.  
-You'll likely end up with 1-2 extra power supply cables running through the bottom your pads. If I can come up with a more elegant solution I'll be sure to post it in detail.  
-**Make sure you use a bright solder mask!!!** White is recommended, green and others may also work, but black solder mask isn't known to be very reflective.
+# Installation
+After assembling and setting up the firmware for each of the panels, actually installing them is the easy part. I'll update this section with photos when I have some.
+
+1. Unplug and remove the original LEDs, and replace them with the new boards.
+    * If the mounting holes *do* line up, use the original screws to secure the new boards in place.
+    * If the mounting holes *don't* line up, double sided tape will do the trick!
+    * You may have to remove some original parts to make room, depending on the pad. This mostly applies to much older pads that have fluorescent lights hooked up to inverters. Carefully remove these (they may be fragile!) and set them aside.
+2. Find a power supply, and plan out where the wires are going to go.
+    * I find the easiest way to do this is to hide the power supply underneath the dance pad and run the cable coming from the low voltage side in through the one of the 4 holes in the bottom of one of the arrow panels.
+    * I would not recommend routing any AC wiring or power supply units inside of the dance pads for safety reasons. It's much safer to run the low voltage DC side in alone.
+3. Mount the power distribution PCB.
+    * Make sure it's within easy reach of the cable you'll be using to power it.
+    * The placement here is entirely up to your discretion, just put it somewhere that allows you to easily run all the necessary wires. I mounted mine under the center panel.
+    * This PCB has no mounting holes, since you'll be using double sided tape or other similar adhesive to mount it. Make sure any exposed contacts on the bottom are trimmed down and/or covered and so they do not make contact with the pad frame.
+4. Run wires from the distribution board's outputs to each of your panels.
+    * If you know what you're doing, and you thoroughly test the power consumption of your components, be sure to use a wire rated for the power draw. Otherwise, I recommend 20AWG wire.
+    * You can either try to source wires with JST XH connectors on either end, or you can crimp these yourself.
+    * If you crimp these yourself, buy a crimping tool! They don't cost a lot and they make things way way less of a pain. (They're still kind of a pain, though.)
+    * Double check that the positive/negative connections line up on both sides of your wires.
+5. Fire it up and give it a test!
+    * If something doesn't work, move onto the troubleshooting section.
+
+# Troubleshooting
+This list will be expanded as potential issues crop up.
+* **No lights or pattern on the LED matrix**
+    1. Make sure the bitmap is in the "bitmap" directory, and is named "bitmap.bmp".
+    2. Check that external power is connected. A USB connection will not power the LEDs.
+    3. Re-export your bitmap through GIMP with the correct settings:
+        * 24-bit colour depth
+        * Run-length encoding **disabled**
+        * Saving colour space information doesn't seem to make a difference, but if in doubt, disable it
+* **Pattern displays, but doesn't look right**
+    1. Make sure your spritesheet is made up of exactly 5x5 pixel sprites, all of which should be stacked vertically. More than one column will not work.
+    2. Re-export your bitmap through GIMP with the correct settings. See step 3 under "No lights or pattern on the LED matrix."
 
 # Credits
 Thanks to:
