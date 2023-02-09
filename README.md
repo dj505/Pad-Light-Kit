@@ -62,8 +62,10 @@ The following components (some of which are not required) are listed per **singl
 |1uF Capacitor                |SMD 0402                    |2       |
 |27pF Capacitor               |SMD 0402                    |2       |
 |10uF Capacitor               |SMD 0402                    |2       |
-|WS2812B LED                  |PLCC4 5x5mm                 |25      |
-|1N4001 Diode \*              |THT                         |1       |
+|WS2812B-V5 LED (!)           |PLCC4 5x5mm                 |25      |
+|SS34 Diode                   |DO-214AC                    |1       |
+|Green LED                    |SMD 0805                    |1       |
+|nSMD025 Fuse                 |SMD 1206                    |1       |
 |3 Pin Header \*              |2.54mm Pitch                |1       |
 |USB Type C Port              |GCT USB4085                 |1       |
 |2 Pin JST XH                 |2.50mm Pitch                |1       |
@@ -84,6 +86,7 @@ The following components (some of which are not required) are listed per **singl
 |NCP1117 3.3V Output Regulator|SOT-223-3                   |1       |
 |12.000MHz Crystal Oscillator |HC49                        |1       |
 
+(!) WS2812B-V5 LEDs don't require external capacitors, so there are no footprints for them on this board. Earlier revisions may not work properly without these capacitors.
 \* Optional  
 \*\* Do Not Fit (only required if a part malfunctions without it)  
 \~ Required for old-style pads (FX and earlier)  
