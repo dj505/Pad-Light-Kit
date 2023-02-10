@@ -6,7 +6,7 @@ import struct
 
 matrix = neopixel.NeoPixel(board.GP0, 25, brightness=1, auto_write=False)
 
-sensor = digitalio.DigitalInOut(board.GP4)
+sensor = digitalio.DigitalInOut(board.GP7)
 sensor.direction = digitalio.Direction.INPUT
 sensor.pull = digitalio.Pull.DOWN
 
