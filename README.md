@@ -134,8 +134,8 @@ If the connector is not supplying enough power, the microcontroller won't read i
 # Firmware Setup
 This project runs on [CircuitPython for the Raspberry Pi Pico.](https://circuitpython.org/board/raspberry_pi_pico/). I'm not quite clever enough to create a special CircuitPython build specifically for this project yet, maybe one day!
 
-1. Download the .uf2 file for CircuitPython. This project was developed using 7.3.3.
-2. Hold the BOOTSEL button down and plug the board into your PC.
+1. Download the .uf2 file for CircuitPython. This project was developed using 7.3.3, but in between writing the firmware and actually receiving all the parts for a kit, 8.0.0 was released as a stable version, so the following instructions have been updated.
+2. Plug the board into your PC. The BOOTSEL button shouldn't need to be held as the board should not yet be programmed. If for some reason it already is, use the BOOTSEL button.
 3. The board should pop up as a USB mass storage device. Drag and drop the .uf2 file onto it. After a moment, it should disconnect, and you should see a "CIRCUITPY" drive appear in its place.
 4. Open the "CIRCUITPY" drive, and copy the contents of this repository's "Firmware" directory onto it, overwriting code.py.
 5. Download the [CircuitPython library bundle](https://circuitpython.org/libraries) that matches the version of CircuitPython you installed.
