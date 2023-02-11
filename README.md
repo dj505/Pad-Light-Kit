@@ -140,7 +140,7 @@ This project runs on [CircuitPython for the Raspberry Pi Pico.](https://circuitp
 4. Open the "CIRCUITPY" drive, and copy the contents of this repository's "Firmware" directory onto it, overwriting code.py.
 5. Download the [CircuitPython library bundle](https://circuitpython.org/libraries) that matches the version of CircuitPython you installed.
     * Look inside the "lib" directory for an "asyncio" folder. Copy this to the CIRCUITPY drive's "lib" folder.
-    * Do the same for "adafruit_pixelbuf.mpy" and "neopixel.mpy".
+    * Do the same for "adafruit_pixelbuf.mpy", "adafruit_ticks.mpy", and "neopixel.mpy".
 6. Create your animations. See the instructions in /Firmware/README.md or use the included example animations.
     * Your animation should be a bitmap file titled "image.bmp" and located in the "bitmap" directory.
     * By default, there won't be a "bitmap" directory. You'll need to create this by hand or copy over the example one.
