@@ -1,7 +1,7 @@
 # Overkill PIU Pad Lighting Kit
 An upgrade kit, if you consider a 5x5 RGB LED grid in the center of each panel to be an upgrade.  
 
-![Render](Panel/Images/Render.png)
+![Demo](Panel/Images/Pad.gif)
 
 # What is this?
 I wanted to make a drop-in kit that replaced the original LEDs in Pump it Up dance pads with fancy StepManiaX-like RGB lighting. **This is only partially that.** Due to a variety of factors, it's not quite as drop-in as I'd hoped, but installation is still rather straightforward!
