@@ -14,7 +14,7 @@ There are 2 PCB designs being worked on for this project:
     * Takes a barrel jack and/or bare wires via screw terminals.
     * 5V input only! Make sure your power supply can pump out enough amps to power all the LEDs.
     * 5 outputs, one per arrow on one pad. In the case of DDR/ITG pads, one may be left unused.
-    * Also includes footprints for filtering capacitors, which I haven't found to be necessary. Populate with 10uF 0603 capacitors if needed.
+    * Also includes footprints for filtering capacitors, which I haven't found to be necessary. Populate with 10uF 0805 capacitors if needed.
 
 Unlike the PicoFX and my other previous hardware projects, this kit is not meant to be hand-soldered, although hand-solder friendly footprints were used where possible. As this likely will not be sold as a pre-made kit any time soon, be aware that it is not a beginner project. PCB manufacturing and assembly costs are rather affordable, but costs from part sourcing and shipping could add up.
 
@@ -102,7 +102,7 @@ This part is extremely basic and just supplies power to the panels. Each PCB sho
 |          Component          |          Footprint         |Quantity|
 |-----------------------------|----------------------------|--------|
 |2 Pin JST XH                 |2.50mm Pitch                |5       |
-|10uF Capacitor \*            |SMD 0402                    |5       |
+|10uF Capacitor \*            |SMD 0805                    |5       |
 |DC Barrel Jack \*\*          |2.5mm inner, 6.4mm Outer    |1       |
 |2 Pin Screw Terminal \*\*    |5mm Plugin Terminal         |1       |
 
