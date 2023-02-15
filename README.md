@@ -57,35 +57,35 @@ A full BOM can be generated using KiCad's schematic editor. Unlike my previous p
 The following components (some of which are not required) are listed per **single** PCB:
 
 ### Bill of materials
-|          Component          |          Footprint         |Quantity|
-|-----------------------------|----------------------------|--------|
-|100nF Capacitor              |SMD 0402                    |10      |
-|1uF Capacitor                |SMD 0402                    |2       |
-|27pF Capacitor               |SMD 0402                    |2       |
-|10uF Capacitor               |SMD 0402                    |2       |
-|WS2812B-V5 LED (!)           |PLCC4 5x5mm                 |25      |
-|SS34 Diode                   |DO-214AC                    |1       |
-|Green LED                    |SMD 0805                    |1       |
-|nSMD025 Fuse                 |SMD 1206                    |1       |
-|3 Pin Header \*              |2.54mm Pitch                |1       |
-|USB Type C Port              |GCT USB4085                 |1       |
-|2 Pin JST XH                 |2.50mm Pitch                |1       |
-|2x6 Pin Header \*            |2.54mm Pitch                |1       |
-|Molex 35312-0760 \~\~        |N/A                         |1       |
-|Molex Mini-Fit Jr \~\~       |N/A                         |4       |
-|2 Pin Header \~              |2.54mm Pitch, **Horizontal**|1       |
-|3 Pin Header \*\*            |1.27mm Pitch, Not Required  |2       |
-|10k Ohm Resistor             |SMD 0402                    |1       |
-|10K Ohm Resistor \*\*        |SMD 0402 (for SPI flash)    |1       |
-|27 Ohm Resistor              |SMD 0402                    |2       |
-|5.1k Ohm Resistor            |SMD 0402                    |2       |
-|3k Ohm Resistor              |SMD 0402                    |1       |
-|1k Ohm Reistor               |SMD 0402                    |3       |
-|Tactile Button Switch        |6mm x 6mm                   |2       |
-|W25Q32JVSS (or equivalent)   |SOIC-8                      |1       |
-|Raspberry Pi RP2040          |QFN-56                      |1       |
-|NCP1117 3.3V Output Regulator|SOT-223-3                   |1       |
-|12.000MHz Crystal Oscillator |HC49                        |1       |
+|          Component          |              Reference              |          Footprint         |Quantity|
+|-----------------------------|-------------------------------------|----------------------------|--------|
+|100nF Capacitor              |C1, C2, C4, C5, C7-C9, C12, C14, C15 |SMD 0402                    |10      |
+|1uF Capacitor                |C3, C6                               |SMD 0402                    |2       |
+|27pF Capacitor               |C10, C11                             |SMD 0402                    |2       |
+|10uF Capacitor               |C13, C16                             |SMD 0402                    |2       |
+|WS2812B-V5 LED (!)           |D1-10, D12-26                        |PLCC4 5x5mm                 |25      |
+|SS34 Diode                   |D27                                  |DO-214AC                    |1       |
+|Green LED                    |D28                                  |SMD 0805                    |1       |
+|nSMD025 Fuse                 |F1                                   |SMD 1206                    |1       |
+|3 Pin Header \*              |J1                                   |2.54mm Pitch                |1       |
+|USB Type C Port              |J2                                   |GCT USB4085                 |1       |
+|2 Pin JST XH                 |J3                                   |2.50mm Pitch                |1       |
+|2x6 Pin Header \*            |J4                                   |2.54mm Pitch                |1       |
+|Molex 35312-0760 \~\~        |J5                                   |N/A                         |1       |
+|Molex Mini-Fit Jr \~\~       |J6-J9                                |N/A                         |4       |
+|2 Pin Header \~              |J10                                  |2.54mm Pitch, **Horizontal**|1       |
+|3 Pin Header \*\*            |J11, J12                             |1.27mm Pitch, Not Required  |2       |
+|1k Ohm Reistor               |R1, R8, R10                          |SMD 0402                    |3       |
+|10k Ohm Resistor             |R2                                   |SMD 0402                    |1       |
+|10K Ohm Resistor \*\*        |R3                                   |SMD 0402 (for SPI flash)    |1       |
+|27 Ohm Resistor              |R4, R5                               |SMD 0402                    |2       |
+|5.1k Ohm Resistor            |R6, R7                               |SMD 0402                    |2       |
+|3k Ohm Resistor              |R9                                   |SMD 0402                    |1       |
+|Tactile Button Switch        |SW1, SW2                             |6mm x 6mm                   |2       |
+|W25Q32JVSS (or equivalent)   |U1                                   |SOIC-8                      |1       |
+|Raspberry Pi RP2040          |U2                                   |QFN-56                      |1       |
+|NCP1117 3.3V Output Regulator|U3                                   |SOT-223-3                   |1       |
+|12.000MHz Crystal Oscillator |Y1                                   |HC49                        |1       |
 
 (!) WS2812B-V5 LEDs don't require external capacitors, so there are no footprints for them on this board. Earlier revisions may not work properly without these capacitors.
 \* Optional  
@@ -99,12 +99,12 @@ All **SMD 0402** parts use hand-solder footprints in just in case, however if yo
 This part is extremely basic and just supplies power to the panels. Each PCB should be capable of supplying up to 8A, enough to power all 5 panels. Just make sure to hook it up to a power supply capable of delivering the necessary wattage.
 
 ### Bill of materials
-|          Component          |          Footprint         |Quantity|
-|-----------------------------|----------------------------|--------|
-|2 Pin JST XH                 |2.50mm Pitch                |5       |
-|10uF Capacitor \*            |SMD 0805                    |5       |
-|DC Barrel Jack \*\*          |2.5mm inner, 6.4mm Outer    |1       |
-|2 Pin Screw Terminal \*\*    |5mm Plugin Terminal         |1       |
+|          Component          | Reference |          Footprint         |Quantity|
+|-----------------------------|-----------|----------------------------|--------|
+|10uF Capacitor \*            |C1-C5      |SMD 0805                    |5       |
+|2 Pin Screw Terminal \*\*    |J1         |5mm Plugin Terminal         |1       |
+|DC Barrel Jack \*\*          |J2         |2.5mm inner, 6.4mm Outer    |1       |
+|2 Pin JST XH                 |J3-J7      |2.50mm Pitch                |5       |
 
 \* Option/not strictly necessary. Serves a purpose, but shouldn't affect functionality if missing.  
 \*\* Denotes parts that are interchangeable depending on how you want to power the board
