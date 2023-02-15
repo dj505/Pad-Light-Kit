@@ -1,5 +1,5 @@
 # Overkill PIU Pad Lighting Kit
-An upgrade kit, if you consider a 5x5 RGB LED matrix in the center of each panel to be an upgrade.  
+An upgrade kit, if you consider a 5x5 RGB LED grid in the center of each panel to be an upgrade.  
 
 ![Render](Panel/Images/Render.png)
 
@@ -41,8 +41,8 @@ Aside from the individual components required for each PCB, you will need:
 * As many "Panel" PCBs as your upgrade requires
     * PIU pads require 5 per full pad, 10 in total for a complete setup
     * ITG/DDR pads require 4 per full pad, 8 in total for a complete setup
-* A way to supply 5V with up to ~15A maximum current draw (75W or so)
-    * This can be either one 7.5-8A power supply **per pad**, or one single super beefy power supply for **both pads simultaneously.**
+* A way to supply 5V with up to ~10A maximum current draw (50W or so)
+    * This can be either one 5A power supply **per pad**, or one single super beefy power supply for **both pads simultaneously.**
     * If I did my math right, these metrics are based on the peak power comsumption when every single LED is lit up white at full brightness. **Only run your LEDs on full-brightness white for extended periods of time at your own risk; the kit was not developed with this use in mind.** (It would be bright as heck, though)
 * Extra wiring to supply power to the new PCBs
     * I recommend 20AWG, anything thinner is not rated for the possible peak power consumption of one panel
@@ -116,9 +116,10 @@ JST XH connectors with 20AWG wire will need to be routed from the power distrubu
 **(Seriously, you're going to want to double check these!)**
 
 ### This kit will require dedicated external power, and there's no safe way around that!
-This kit bumps the LED count up to 125 per pad. Stock pads have around 40 or fewer depending on pad model. Please don't try to power this off the cab's original 12V line! The original 22AWG wire is rated for roughly 0.92A. This kit can potentially draw over 1.5A per panel, or over 7.5A total per pad. While this is a worst-case scenario, be sure to stick to the following guidelines.  
-Make sure you use a power supply that's capable of supplying the necessary amount of power required by this kit, and pick a wire gauge capable of carrying the amount of power needed for each panel. 20AWG is recommended at minimum.  
-You'll likely end up with some extra power supply cables running through the bottom your pads. If I can come up with a more elegant solution I'll be sure to post it in detail, but the holes present in the bottom corners of each arrow are safe bets as entry points for your wires.
+This kit bumps the LED count up to 125 per pad. Stock pads have around 40 or fewer depending on pad model. Please don't try to power this off the cab's original 12V line! The original 22AWG wire is rated for roughly 0.92A. This kit can potentially draw up to 1A per panel, or 5A total per pad. Plus, the 12V line is used for signalling purposes with this kit, and it won't function correctly without it. **I've measured a draw of 0.874A for a single panel lit up white at full brightness, however this may not be consistent from build to build.** While 10A total is a worst-case scenario, be sure to stick to the following guidelines:  
+* Make sure you use a power supply that's capable of supplying the necessary amount of power required by this kit, and pick a wire gauge capable of carrying the amount of power needed for each panel. I would recommend 20AWG.  
+* You'll need a way to run power into the pads. If I can come up with a more elegant solution I'll be sure to post it in detail, but the holes present in the bottom corners of each arrow are safe bets as entry points for your wires.
+* Even if you don't plan on running these at high enough power to draw 5A per pad (or the maximum you have measured on your own), don't skimp out on a power supply. Overdrawing the power supply will cause it to get uncomfortably warm (or worse), and will eventually destroy it. Spend the extra few bucks for safety!
 
 ### Make sure you use a bright solder mask!
 White is recommended, green and others may also work, but black solder mask isn't known to be very reflective. It won't make a very big difference, but it will definitely look better and brighter.
@@ -127,9 +128,10 @@ White is recommended, green and others may also work, but black solder mask isn'
 These boards get their "turn on and start animating" signal from the original 12V wiring that's meant to power the stock LEDs/inverters/what have you. To make this safe for the 3.3V RP2040 chip, a voltage divider is used. Until this design is eventually replaced with an optoisolator or other component, **you should do the following:**  
 1. Unplug the stock LED
 2. Hook up a voltmeter or a multimeter in DC mode to the connector
-3. Ensure the connector supples **no less than 10V** and **no more than 13.2V** when supplying power
+3. Ensure the connector supples **no less than 10V** and **no more than 13.2V** when supplying power  
+If your measurement falls outside of this range and the power supply in your cab isn't adjustable, you may need to use different reistors for the voltage divider circuit.
 
-If the connector is not supplying enough power, the microcontroller won't read it as a "high" signal to start animating the lights. If it's *too* high, you risk damaging the microcontroller. I've haven't seen any machines deviate from this general range before, so chances are you're fine, but make sure to double check. If your machine has a variable voltage power supply **and you know what you're doing**, consider adjusting it slightly to fit within the safe range.
+If the connector is not supplying enough power, the microcontroller won't read it as a "high" signal to start animating the lights. If it's *too* high, you risk damaging the microcontroller. I've haven't seen any machines deviate from this general range before, so chances are you're fine, but make sure to double check. If your machine has a variable voltage power supply **and you know what you're doing**, you can adjust it slightly to fit within the safe range.
 
 # Firmware Setup
 This project runs on [CircuitPython for the Raspberry Pi Pico.](https://circuitpython.org/board/raspberry_pi_pico/). I'm not quite clever enough to create a special CircuitPython build specifically for this project yet, maybe one day!
@@ -161,7 +163,7 @@ After assembling and setting up the firmware for each of the panels, actually in
     * The placement here is entirely up to your discretion, just put it somewhere that allows you to easily run all the necessary wires. I mounted mine under the center panel.
     * This PCB has no mounting holes, since you'll be using double sided tape or other similar adhesive to mount it. Make sure any exposed contacts on the bottom are trimmed down and/or covered and so they do not make contact with the pad frame.
 4. Run wires from the distribution board's outputs to each of your panels.
-    * If you know what you're doing, and you thoroughly test the power consumption of your components, be sure to use a wire rated for the power draw. Otherwise, I recommend 20AWG wire.
+    * If you know what you're doing, and you thoroughly test the power consumption of your components, be sure to use a wire rated for the power draw. Otherwise, I recommend 20AWG wire. I personally measured a 0.874A peak power draw, but your build may differ.
     * You can either try to source wires with JST XH connectors on either end, or you can crimp these yourself.
     * If you crimp these yourself, buy a crimping tool! They don't cost a lot and they make things way way less of a pain. (They're still kind of a pain, though.)
     * Double check that the positive/negative connections line up on both sides of your wires.
@@ -170,7 +172,7 @@ After assembling and setting up the firmware for each of the panels, actually in
 
 # Troubleshooting
 This list will be expanded as potential issues crop up.
-* **No lights or pattern on the LED matrix**
+* **No lights or pattern on the LED grid**
     1. Make sure the bitmap is in the "bitmap" directory, and is named "bitmap.bmp".
     2. Check that external power is connected. A USB connection will not power the LEDs.
     3. Re-export your bitmap through GIMP with the correct settings:
@@ -179,7 +181,19 @@ This list will be expanded as potential issues crop up.
         * Saving colour space information doesn't seem to make a difference, but if in doubt, disable it
 * **Pattern displays, but doesn't look right**
     1. Make sure your spritesheet is made up of exactly 5x5 pixel sprites, all of which should be stacked vertically. More than one column will not work.
-    2. Re-export your bitmap through GIMP with the correct settings. See step 3 under "No lights or pattern on the LED matrix."
+    2. Re-export your bitmap through GIMP with the correct settings. See step 3 under "No lights or pattern on the LED grid."
+* **All the LEDs past a certain point fail to light up**
+    1. Check the solder points on and around the LED where the chain is broken.
+        * The strip goes from left to right on the first row, then right to left on the second row, zigzagging back and forth.
+        * If any single LED is not properly connected, it can either light up but not send a signal to the next one, or fail to light up itself.
+        * Carefully re-solder any bad connections and test again.
+    2. Ensure the LEDs are oriented correctly.
+        * With the USB port on the top left corner, the notch on every LED should be on the bottom right side.
+        * Any LEDs that aren't oriented properly will need to be desoldered and rotated.
+* **One single LED doesn't light up, but the rest work**
+    1. Add some flux to each leg of the LED and reflow the solder.
+        * Screwing the PCB down into the pad may slightly bend it, causing a poor connection on one or more LEDs.
+        * Reflowing the solder usually fixes this fault. Current revisions of the PCB with slightly larger mounting holes should be less susceptible to it.
 
 # Credits
 Thanks to:
