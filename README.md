@@ -171,6 +171,9 @@ After assembling and setting up the firmware for each of the panels, actually in
 5. Fire it up and give it a test!
     * If something doesn't work, move onto the troubleshooting section.
 
+# Jumper Options
+These jumpers are currently unused. Please feel free to reach out and suggest features!
+
 # Troubleshooting
 This list will be expanded as potential issues crop up.
 * **No lights or pattern on the LED grid**
