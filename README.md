@@ -174,6 +174,15 @@ After assembling and setting up the firmware for each of the panels, actually in
 # Jumper Options
 These jumpers are currently unused. Please feel free to reach out and suggest features!
 
+# Bypassing the Voltage Divider
+There's a small set of jumper pads underneath and to the right of the connector for the 12V light header header that is meant to bypass the voltage divider. This is meant to allow the panel to be easily used in home pads or DIY pads using an Arduino-like main board. **Do not bridge this jumper if using anything higher than a 3.3V to control the lights.**
+
+To use this feature, you must:
+* Make sure you remove resistors R9 and R10 underneath the header if they are currently installed. Otherwise, exclude these components during the initial asssembly.
+* Make sure the GPIO you're going to connect this to operates at a **3.3 volt logic level!** The RP2040 is **not 5V tolerant** and applying 5V to the GPIO can cause irreversible damage.
+
+If you plan to use a 5V microcontroller, you must **not** bridge the jumper, and should instead adjust the values of the resistors in the voltage divider accordingly.
+
 # Troubleshooting
 This list will be expanded as potential issues crop up.
 * **No lights or pattern on the LED grid**
