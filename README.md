@@ -68,7 +68,7 @@ The following components (some of which are not required) are listed per **singl
 |Green LED                    |D28                                  |SMD 0805                    |1       |
 |nSMD025 Fuse                 |F1                                   |SMD 1206                    |1       |
 |3 Pin Header \*              |J1                                   |2.54mm Pitch                |1       |
-|USB Type C Port              |J2                                   |GCT USB4085                 |1       |
+|USB Type C Port              |J2                                   |G-Switch GT-USB 7010ASV     |1       |
 |2 Pin JST XH                 |J3                                   |2.50mm Pitch                |1       |
 |2x6 Pin Header \*            |J4                                   |2.54mm Pitch                |1       |
 |Molex 35312-0760 \~\~        |J5                                   |N/A                         |1       |
